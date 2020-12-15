@@ -2,7 +2,7 @@
 from splinter import Browser
 from bs4 import BeautifulSoup as bs
 import pandas as pd
-
+import time
 
 
 def initial_browser():
@@ -17,7 +17,7 @@ def scrape_info():
     
     url = "https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest"
     browser.visit(url)
-
+    time.sleep(1)
     html = browser.html
     soup = bs(html, "html.parser")
     #Scrape the NASA Mars News Site and collect the latest News Title and Paragraph Text. 

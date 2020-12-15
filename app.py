@@ -9,19 +9,23 @@ app = Flask(__name__)
 mongo = PyMongo(app, uri="mongodb://localhost:27017/nasa_app")
 
 
+
 @app.route("/")
 def home():
 
     mars_data = mongo.db.collection.find_one()
-
+    
+    
     
     return render_template("index.html", mars=mars_data)
     
 
 @app.route("/scrape")
 def scrape():
+    
     latest_nasa_data = scrape_mars.scrape_info()
 
+    #mongo.db.drop_collection(mars_data)
     
     mongo.db.collection.update({}, latest_nasa_data, upsert=True)
 
