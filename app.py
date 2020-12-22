@@ -14,7 +14,7 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/nasa_app")
 def home():
 
     mars_data = mongo.db.collection.find_one()
-    
+   
     
     
     return render_template("index.html", mars=mars_data)
@@ -23,11 +23,10 @@ def home():
 @app.route("/scrape")
 def scrape():
     
-    latest_nasa_data = scrape_mars.scrape_info()
+    mars_data = scrape_mars.scrape_info()
 
-    #mongo.db.drop_collection(mars_data)
-    
-    mongo.db.collection.update({}, latest_nasa_data, upsert=True)
+  
+    mongo.db.collection.update({}, mars_data, upsert=True)
 
    
     return redirect("/")
