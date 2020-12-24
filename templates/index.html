@@ -13,27 +13,102 @@
   <div class="container-fluid">
     <div class="jumbotron text-center">
       <h1>Mission to Mars</h1>
-      <p>Latest news and facts</p>
+      <p>Latest news and facts about the Red Planet</p>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get new updates!</a></p>
     </div>
     
-    <h3>{{ mars.latest_title }}</h3>
-    <h3>{{ mars.latest_paragraph }}</h3>
-    
-    <img src={{ mars.featured_image_url }}>
-
-    {{ mars.facts_table | safe }}
-    <h3>{{ mars.Hemispheres[0].title }}</h3>
-    <img src={{ mars.Hemispheres[0].img_url }} width="512">
-    <h3>{{ mars.Hemispheres[1].title }}</h3>
-    <img src={{ mars.Hemispheres[1].img_url }} width="512">
-    <h3>{{ mars.Hemispheres[2].title }}</h3>
-    <img src={{ mars.Hemispheres[2].img_url }} width="512">
-    <h3>{{ mars.Hemispheres[3].title }}</h3>
-    <img src={{ mars.Hemispheres[3].img_url }} width="512" >
-
+    <div class="row">
+      <div class="col-lg-12">
+        <h2><strong>Latest news from NASA</strong></h2>
+        <h3>{{ mars.latest_title }}</h3>
+        <h3>{{ mars.latest_paragraph }}</h3>
+      </div>
     </div>
+    
+    <div class="row">
+      
+      <div class="col-lg-8">
+        <h2><strong>Featured image from NASA</strong></h2>
+        <p>
+          <img src={{ mars.featured_image_url }}>
+        </p>
+      </div>
+    
+      <div class="col-lg-4">
+        <h2><strong>Mars facts</strong></h2>
+        <p>
+          <h3>{{ mars.facts_table | safe }}</h3>
+        </p> 
+      </div>
+    
+    </div>
+    
+    <div class="row">
+      
+      <div class="text-center">
+        <h2><strong>Hemispheres of Mars</strong></h2>
+      </div>
+      
+
+      <div class="col-lg-3">
+        <div class="card" style="width: 18rem;">
+          <img src={{ mars.Hemispheres[0].img_url }} class="card-img-top" width="512">
+          <div class="card-body">
+            <p class="card-text">
+              <h4>
+                {{ mars.Hemispheres[0].title }}
+              </h4>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="card" style="width: 18rem;">
+          <img src={{ mars.Hemispheres[1].img_url }} class="card-img-top" width="512">
+          <div class="card-body">
+            <p class="card-text">
+              <h4>
+                {{ mars.Hemispheres[1].title }}
+              </h4>
+            </p>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <div class="col-lg-3">
+        <div class="card" style="width: 18rem;">
+          <img src={{ mars.Hemispheres[2].img_url }} class="card-img-top" width="512">
+          <div class="card-body">
+            <p class="card-text">
+              <h4>
+                {{ mars.Hemispheres[2].title }}
+              </h4>
+            </p>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-lg-3">
+        <div class="card" style="width: 18rem;">
+          <img src={{ mars.Hemispheres[3].img_url }} class="card-img-top" width="512">
+          <div class="card-body">
+            <p class="card-text">
+              <h4>
+                {{ mars.Hemispheres[3].title }}
+              </h4>
+            </p>
+          </div>
+        </div>
+      </div>
+   
   </div>
+
+
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>    
 </body>
 
 </html>
